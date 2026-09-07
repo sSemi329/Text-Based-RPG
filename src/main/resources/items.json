@@ -1,0 +1,239 @@
+[
+  {
+    "id": "iron_sword",
+    "name": "Iron Sword",
+    "tags": ["sword", "melee"],
+    "type": "weapon",
+    "damage": 15,
+    "slots": 1,
+    "price": 10,
+    "description": "A sturdy iron sword, worn but reliable."
+  },
+  {
+    "id": "old_bow",
+    "name": "Old Bow",
+    "tags": ["bow", "ranged"],
+    "type": "weapon",
+    "damage": 10,
+    "slots": 2,
+    "price": 10,
+    "description": "A creaky wooden bow. Still shoots straight."
+  },
+  {
+    "id": "bearers_sword",
+    "name": "The Bearer's Sword",
+    "tags": ["sword", "melee", "quest_item"],
+    "type": "weapon",
+    "damage": 25,
+    "slots": 2,
+    "price": 50,
+    "description": "An ancient blade etched with runes. Something feels different about it."
+  },
+  {
+    "id": "old_armor",
+    "name": "Old Armor",
+    "tags": ["heavy"],
+    "type": "armor",
+    "defense": 25,
+    "price": 10,
+    "description": "A rusty armor plate that can still protect it's wearer."
+  },
+  {
+    "id": "wooden_shield",
+    "name": "Wooden Shield",
+    "tags": ["shield", "defense"],
+    "type": "weapon",
+    "defense": 5,
+    "slots": 1,
+    "price": 5,
+    "description": "A basic round shield made of splintered pine."
+  },
+  {
+    "id": "steel_dagger",
+    "name": "Steel Dagger",
+    "tags": ["dagger", "melee", "fast"],
+    "type": "weapon",
+    "damage": 8,
+    "slots": 1,
+    "price": 12,
+    "description": "Light, sharp, and easy to conceal."
+  },
+  {
+    "id": "hunters_bow",
+    "name": "Hunter's Bow",
+    "tags": ["bow", "ranged"],
+    "type": "weapon",
+    "damage": 18,
+    "slots": 2,
+    "price": 35,
+    "description": "Finely crafted from flexible yew wood, favored by local scouts."
+  },
+  {
+    "id": "leather_tunic",
+    "name": "Leather Tunic",
+    "tags": ["light"],
+    "type": "armor",
+    "defense": 10,
+    "price": 15,
+    "description": "Reinforced leather that offers decent mobility and basic protection."
+  },
+  {
+    "id": "steel_mace",
+    "name": "Steel Mace",
+    "tags": ["mace", "melee", "blunt"],
+    "type": "weapon",
+    "damage": 22,
+    "slots": 1,
+    "price": 40,
+    "description": "A heavy flanged mace designed to crush heavy armor."
+  },
+  {
+    "id": "iron_halberd",
+    "name": "Iron Halberd",
+    "tags": ["polearm", "melee", "two_handed"],
+    "type": "weapon",
+    "damage": 28,
+    "slots": 2,
+    "price": 45,
+    "description": "Combines the reach of a spear with the devastating power of an axe."
+  },
+  {
+    "id": "chainmail_shirt",
+    "name": "Chainmail Shirt",
+    "tags": ["medium"],
+    "type": "armor",
+    "defense": 35,
+    "slots": 2,
+    "price": 60,
+    "description": "Interlocking steel rings that provide excellent protection against slashing attacks."
+  },
+  {
+    "id": "apprentice_wand",
+    "name": "Apprentice Wand",
+    "tags": ["wand", "magic"],
+    "type": "weapon",
+    "damage": 15,
+    "slots": 1,
+    "price": 25,
+    "description": "A simple focus stick for channeling basic elemental sparks."
+  },
+  {
+    "id": "knights_greatsword",
+    "name": "Knight's Greatsword",
+    "tags": ["sword", "melee", "two_handed"],
+    "type": "weapon",
+    "damage": 45,
+    "slots": 2,
+    "price": 180,
+    "description": "A massive, heavy blade that requires immense strength to wield properly."
+  },
+  {
+    "id": "steel_shield",
+    "name": "Steel Shield",
+    "tags": ["shield", "defense"],
+    "type": "weapon",
+    "defense": 20,
+    "slots": 1,
+    "price": 70,
+    "description": "A heavy heater shield emblazoned with a forgotten crest."
+  },
+  {
+    "id": "cross_bow",
+    "name": "Heavy Crossbow",
+    "tags": ["crossbow", "ranged"],
+    "type": "weapon",
+    "damage": 35,
+    "slots": 2,
+    "price": 85,
+    "description": "Slow to reload, but packs enough punch to pierce iron plates."
+  },
+  {
+    "id": "steel_breastplate",
+    "name": "Steel Breastplate",
+    "tags": ["heavy"],
+    "type": "armor",
+    "defense": 60,
+    "price": 200,
+    "description": "Polished steel plate that covers vital organs. It's heavy but reliable."
+  },
+  {
+    "id": "bone_staff",
+    "name": "Bone Staff",
+    "tags": ["staff", "magic", "two_handed"],
+    "type": "weapon",
+    "damage": 30,
+    "slots": 2,
+    "price": 95,
+    "description": "Carved from the spine of a large beast. It radiates a cold, eerie energy."
+  },
+  {
+    "id": "small_health_potion",
+    "name": "Small Health Potion",
+    "tags": ["consumable"],
+    "type": "potion",
+    "effect": "heal",
+    "amount": 15,
+    "price": 40,
+    "description": "A small potion that comes in handy most of the times."
+  },
+  {
+    "id": "bread",
+    "name": "Bread",
+    "tags": ["food","consumable"],
+    "type": "misc",
+    "effect": "heal",
+    "amount": 10,
+    "price": 10,
+    "description": "Bread."
+  },
+  {
+    "id": "fish",
+    "name": "Fish",
+    "tags": ["food","consumable"],
+    "type": "misc",
+    "effect": "heal",
+    "amount": 10,
+    "price": 20,
+    "description": "Common fish. Tastes good."
+  },
+  {
+    "id": "small_sanity_potion",
+    "name": "Small Sanity Potion",
+    "tags": ["consumable"],
+    "type": "potion",
+    "effect": "sanity",
+    "amount": 15,
+    "price": 40,
+    "description": "A small potion that comes in handy most of the times."
+  },
+  {
+    "id": "health_potion",
+    "name": "Health Potion",
+    "tags": ["consumable"],
+    "type": "potion",
+    "effect": "heal",
+    "amount": 30,
+    "price": 100,
+    "description": "A potion that comes in handy most of the times."
+  },
+  {
+    "id": "sanity_potion",
+    "name": "Sanity Potion",
+    "tags": ["consumable"],
+    "type": "potion",
+    "effect": "sanity",
+    "amount": 30,
+    "price": 100,
+    "description": "A small potion that comes in handy most of the times."
+  },
+  {
+    "id": "tuna",
+    "name": "Tuna",
+    "tags": ["food","consumable"],
+    "type": "misc",
+    "effect": "heal",
+    "amount": 15,
+    "price": 30,
+    "description": "Tuna is a specialty around some parts of the world."
+  }
+]

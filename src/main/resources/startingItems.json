@@ -1,0 +1,60 @@
+[
+  {
+    "id": "iron_sword",
+    "name": "Iron Sword",
+    "tags": ["sword", "melee"],
+    "type": "weapon",
+    "damage": 15,
+    "slots": 1,
+    "price": 10,
+    "description": "A sturdy iron sword, worn but reliable."
+  },
+  {
+    "id": "old_bow",
+    "name": "Old Bow",
+    "tags": ["bow", "ranged"],
+    "type": "weapon",
+    "damage": 10,
+    "slots": 2,
+    "price": 10,
+    "description": "A creaky wooden bow. Still shoots straight."
+  },
+  {
+    "id": "old_armor",
+    "name": "Old Armor",
+    "tags": ["heavy"],
+    "type": "armor",
+    "defense": 20,
+    "price": 10,
+    "description": "A rusty armor plate that can still protect it's wearer."
+  },
+  {
+    "id": "wooden_shield",
+    "name": "Wooden Shield",
+    "tags": ["shield", "defense"],
+    "type": "weapon",
+    "defense": 5,
+    "slots": 1,
+    "price": 5,
+    "description": "A basic round shield made of splintered pine."
+  },
+  {
+    "id": "steel_dagger",
+    "name": "Steel Dagger",
+    "tags": ["dagger", "melee", "fast"],
+    "type": "weapon",
+    "damage": 8,
+    "slots": 1,
+    "price": 12,
+    "description": "Light, sharp, and easy to conceal."
+  },
+  {
+    "id": "leather_tunic",
+    "name": "Leather Tunic",
+    "tags": ["light"],
+    "type": "armor",
+    "defense": 15,
+    "price": 15,
+    "description": "Reinforced leather that offers decent mobility and basic protection."
+  }
+]

@@ -1,0 +1,560 @@
+[
+  {
+    "id": "corpse_in_the_road1",
+    "text": [
+      "As you travel the lonely road, you come upon a corpse lying in the dirt.",
+      "A sword still rests in its lifeless grasp, and blood stains both the body and the earth around it."
+    ],
+    "choices": [
+      {
+        "text": "Steal the sword",
+        "outcome": {
+          "successStatChanges": { "sanity": -10, "exp": 10, "morality": -15 },
+          "successAddItems": ["iron_sword"]
+        }
+      },
+      {
+        "text": "Bury the corpse",
+        "conditions": [{ "type": "HAS_ITEM", "key": "simple_spade" }],
+        "outcome": {
+          "successStatChanges": { "exp": 10, "morality": 10 }
+        }
+      },
+      {
+        "text": "Search the body",
+        "conditions": [{ "type": "STAT_MIN", "key": "intelligence", "value": 8 }],
+        "outcome": {
+          "successChance": 30,
+          "skillCheck": { "stat": "intelligence", "bonusPerPoint": 5 },
+          "nextEventId": "corpse_in_the_road_note",
+          "failEventId": "corpse_in_the_road_empty",
+          "successStatChanges": { "exp": 10, "morality": -10 },
+          "failStatChanges": { "exp": 1, "morality": -10 }
+        }
+      },
+      {
+        "text": "Pass the body",
+        "outcome": {
+          "successStatChanges": { "exp": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "corpse_in_the_road_empty",
+    "text": ["You search the corpse but find nothing of interest so you decide to move on."],
+    "poolExcluded": true,
+    "choices": [
+      {
+        "text": "Move onwards",
+        "outcome": {
+          "successStatChanges": {"exp": 1}
+        }
+      }
+    ]
+  },
+  {
+    "id": "corpse_in_the_road_note",
+    "text": [
+      "Searching the corpse, you find a small pouch of coins and a strange note tucked inside one of its pockets.",
+      "\"The handle shall reveal whether this is truly The Bearer’s Sword\"",
+      "Unsure of its meaning, {PlayerName} keeps the note, hoping to find someone who might know more about the mysterious blade."
+    ],
+    "poolExcluded": true,
+    "choices": [
+      {
+        "text": "Move onwards",
+        "outcome": {
+          "successStatChanges": {"exp": 1},
+          "successAddItems": ["corpse_strange_note"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "bandit_fight",
+    "text": [
+      "You encounter a bandit down the road. He demands your money."
+    ],
+    "choices": [
+      {
+        "text": "Fight",
+        "outcome": {
+          "successStatChanges": {"exp": 1},
+          "combat": "bandit",
+          "combatLoseEventId": "bandit_defeated",
+          "combatWinEventId": "bandit_victory"
+        }
+      },
+      {
+        "text": "Give him your money",
+        "outcome": {
+          "successStatChanges": {"exp": 1, "gold": -1000}
+        }
+      }
+    ]
+  },
+  {
+    "id": "bandit_victory",
+    "poolExcluded": true,
+    "text": [
+      "After a long fight you managed to defeat the bandit!"
+    ],
+    "choices": [
+      {
+        "text": "Move Onwards",
+        "outcome": {
+          "successStatChanges": { "gold": 5 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bandit_defeated",
+    "poolExcluded": true,
+    "text": [
+      "After an exhausting fight the bandit managed to win the fight."
+    ],
+    "choices": [
+      {
+        "text": "Move onwards",
+        "outcome": {
+          "successStatChanges": { "exp": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "dog_in_the_road",
+    "text": [
+      "A frail dog stands in the middle of the road. The poor creature watches you cautiously, and from the look in its eyes, it has not eaten in days."
+    ],
+    "choices": [
+      {
+        "text": "Feed the dog",
+        "conditions": [{ "type": "HAS_ITEM_TAG", "key": "food" }],
+        "outcome": {
+          "successStatChanges": { "sanity": 10, "exp": 10, "morality": 15 },
+          "consumeItemWithTag": "food"
+        }
+      },
+      {
+        "text": "Ignore the dog",
+        "outcome": {
+          "successStatChanges": { "exp": 1, "morality": -3 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_fight",
+    "text": [
+      "You see a vampire in an abandoned hut down the road."
+    ],
+    "choices": [
+      {
+        "text": "Fight",
+        "outcome": {
+          "successStatChanges": {"exp": 15},
+          "combat": "vampire",
+          "combatLoseEventId": "vampire_defeated",
+          "combatWinEventId": "vampire_victory"
+        }
+      },
+      {
+        "text": "Sneak around the hut",
+        "outcome": {
+          "successChance": 30,
+          "skillCheck": {
+            "stat": "agility",
+            "bonusPerPoint": 5
+          },
+          "nextEventId": "vampire_won_sneak",
+          "failEventId": "vampire_failed_sneak",
+          "successStatChanges": {
+            "exp": 10
+          },
+          "failStatChanges": {
+            "exp": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_victory",
+    "poolExcluded": true,
+    "text": [
+      "After a long fight you managed to defeat the vampire!"
+    ],
+    "choices": [
+      {
+        "text": "Move Onwards",
+        "outcome": {
+          "successStatChanges": { "gold": 10, "exp": 10}
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_defeated",
+    "poolExcluded": true,
+    "text": [
+      "After an exhausting fight the vampire managed to win the fight."
+    ],
+    "choices": [
+      {
+        "text": "Move onwards",
+        "outcome": {
+          "successStatChanges": { "exp": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_won_sneak",
+    "poolExcluded": true,
+    "text": [
+      "You managed to sneak around the hut and the vampire didn't observe you!"
+    ],
+    "choices": [
+      {
+        "text": "Move Onwards",
+        "outcome": {
+          "successStatChanges": { "exp": 15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "vampire_failed_sneak",
+    "poolExcluded": true,
+    "text": [
+      "The vampire saw you and now he rushes to attack you."
+    ],
+    "choices": [
+      {
+        "text": "Attack the vampire",
+        "outcome": {
+          "successStatChanges": {"exp": 15},
+          "combat": "vampire",
+          "combatLoseEventId": "vampire_defeated",
+          "combatWinEventId": "vampire_victory"
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_arrival",
+    "text": [
+      "You arrive in a quiet town. Far too quiet for this time of the year.",
+      "The streets are completely deserted, and the air feels unusually heavy. Something is not right here."
+    ],
+    "choices": [
+      {
+        "text": "Check if there is something suspicious",
+        "outcome": {
+          "successChance": 30,
+          "skillCheck": {
+            "stat": "intelligence",
+            "bonusPerPoint": 5
+          },
+          "nextEventId": "quiet_town_strange_house",
+          "failEventId": "quiet_town_ignored",
+          "successStatChanges": { "exp": 5 },
+          "failStatChanges": { "exp": 1 }
+        }
+      },
+      {
+        "text": "Ignore the town and move onwards",
+        "outcome": {
+          "successStatChanges": { "exp": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_ignored",
+    "poolExcluded": true,
+    "text": [
+      "You wander around the empty alleys for a while, but notice nothing out of the ordinary. You decide it's best to move onwards."
+    ],
+    "choices": [
+      {
+        "text": "Leave the town",
+        "outcome": {
+          "successStatChanges": { "exp": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_strange_house",
+    "poolExcluded": true,
+    "text": [
+      "Investigating the area, you come across a strange house from which whispered voices can be heard.",
+      "Inside, several villagers are gathered, staring blankly into the void. You ask them what is happening, but they do not answer, seemingly lost in a deep trance."
+    ],
+    "choices": [
+      {
+        "text": "Leave them alone and walk away",
+        "outcome": {
+          "successStatChanges": { "exp": 2, "morality": 5 }
+        }
+      },
+      {
+        "text": "Attack them",
+        "outcome": {
+          "successStatChanges": { "exp": 5, "morality": -10 },
+          "combat": "hypnotized_villagers",
+          "combatLoseEventId": "quiet_town_combat_lost",
+          "combatWinEventId": "quiet_town_combat_won"
+        }
+      },
+      {
+        "text": "Search the room",
+        "outcome": {
+          "successChance": 20,
+          "skillCheck": {
+            "stat": "intelligence",
+            "bonusPerPoint": 5
+          },
+          "nextEventId": "quiet_town_found_crystal",
+          "failEventId": "quiet_town_failed_search",
+          "successStatChanges": { "exp": 15 },
+          "failStatChanges": { "exp": 2 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_failed_search",
+    "poolExcluded": true,
+    "text": [
+      "You quickly look through the room, rummaging through shelves and boxes, but fail to find anything suspicious.",
+      "The villagers begin to mutter threateningly, closing the circle around you. You must act fast!"
+    ],
+    "choices": [
+      {
+        "text": "Attack the villagers",
+        "outcome": {
+          "successStatChanges": { "exp": 5, "morality": -10 },
+          "combat": "hypnotized_villagers",
+          "combatLoseEventId": "quiet_town_combat_lost",
+          "combatWinEventId": "quiet_town_combat_won"
+        }
+      },
+      {
+        "text": "Flee from the town",
+        "outcome": {
+          "successStatChanges": { "exp": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_combat_lost",
+    "poolExcluded": true,
+    "text": [
+      "The villagers, driven by a blind trance, completely overwhelm you with numbers. They beat you up and violently banish you from the town."
+    ],
+    "choices": [
+      {
+        "text": "Gather your strength and move onwards",
+        "outcome": {
+          "successStatChanges": { "exp": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_combat_won",
+    "poolExcluded": true,
+    "text": [
+      "You managed to defeat the hypnotized villagers. Searching through their belongings, you find an item dropped on the floor."
+    ],
+    "choices": [
+      {
+        "text": "Take the item and leave",
+        "outcome": {
+          "successStatChanges": { "exp": 20, "gold": 30 },
+          "successAddItems": ["steel_dagger"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_found_crystal",
+    "poolExcluded": true,
+    "text": [
+      "Your intelligence pays off! Hidden under an old cloth, you discover a mystical crystal ball pulsing with a bizarre energy.",
+      "It seems to be the very source of the trance keeping everyone captive."
+    ],
+    "choices": [
+      {
+        "text": "Shatter the crystal ball",
+        "outcome": {
+          "successStatChanges": { "exp": 30, "sanity": 15, "morality": 25 },
+          "nextEventId": "quiet_town_found_crystal_end"
+        }
+      }
+    ]
+  },
+  {
+    "id": "quiet_town_found_crystal_end",
+    "poolExcluded": true,
+    "text": [
+      "the villagers thank you for helping them come back to normal and they give you some items."
+    ],
+    "choices": [
+      {
+        "text": "Accept the gift",
+        "outcome": {
+          "successStatChanges": { "exp": 30, "sanity": 15, "morality": 25 },
+          "successAddItems": ["steel_shield", "steel_mace","health_potion"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "traveling_merchant",
+    "text": ["A traveling merchant approaches you with a smile."],
+    "choices": [
+      {
+        "text": "Browse his wares",
+        "outcome": {
+          "shop": {
+            "poolIds": ["iron_sword", "old_bow", "small_health_potion", "bread", "old_armor"],
+            "count": 3
+          }
+        }
+      },
+      {
+        "text": "Ignore him",
+        "outcome": {
+          "successStatChanges": {"exp": 1}
+        }
+      }
+    ]
+  },
+  {
+    "id": "shop_point",
+    "text": ["You are taking a break in a city. It is a good time to visit a shop."],
+    "choices": [
+      {
+        "text": "Visit the blacksmith's shop",
+        "outcome": {
+          "shop": {
+            "poolIds": ["iron_sword", "old_bow", "old_armor","steel_dagger","hunters_bow","steel_mace","chainmail_shirt","knights_greatsword","cross_bow","steel_breastplate","steel_shield"],
+            "count": 5
+          }
+        }
+      },
+      {
+        "text": "Visit the adventurer's shop",
+        "outcome": {
+          "shop": {
+            "poolIds": ["iron_sword", "old_bow", "small_health_potion", "bread","tuna","sanity_potion","health_potion","small_sanity_potion","fish","old_armor"],
+            "count": 5
+          }
+        }
+      },
+      {
+        "text": "Visit the magic shop",
+        "outcome": {
+          "shop": {
+            "poolIds": ["health_potion","sanity_potion","bone_staff","small_health_potion","apprentice_wand"],
+            "count": 3
+          }
+        }
+      },
+      {
+        "text": "Just relax",
+        "outcome": {
+          "successStatChanges": {"exp": 1, "hp": 10, "sanity": 10}
+        }
+      }
+    ]
+  },
+  {
+    "id": "final_event",
+    "poolExcluded": true,
+    "text": [
+      "After years of wandering, your journey has led you here.",
+      "The choices you made, the lives you touched, all of it has led to this moment."
+    ],
+    "choices": [
+      {
+        "text": "Face your destiny as a hero",
+        "conditions": [{ "type": "STAT_MIN", "key": "morality", "value": 150 }],
+        "outcome": {
+          "nextEventId": "ending_hero"
+        }
+      },
+      {
+        "text": "Claim power for yourself",
+        "conditions": [
+          { "type": "STAT_MIN", "key": "morality", "value": 50 },
+          { "type": "HAS_ITEM", "key": "bearers_sword" }
+        ],
+        "outcome": {
+          "nextEventId": "ending_power"
+        }
+      },
+      {
+        "text": "Disappear into the shadows",
+        "outcome": {
+          "nextEventId": "ending_dark"
+        }
+      }
+    ]
+  },
+  {
+    "id": "ending_hero",
+    "poolExcluded": true,
+    "text": [
+      "Your deeds are remembered across the land. Songs are sung in your name.",
+      "You have carved your place in this world, just as you always dreamed."
+    ],
+    "choices": [
+      {
+        "text": "THE END",
+        "outcome": {
+          "successStatChanges": { "hp": -9999 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ending_power",
+    "poolExcluded": true,
+    "text": [
+      "With the Bearer's Sword in hand, you seize what others could only dream of.",
+      "The world bows, but at what cost?"
+    ],
+    "choices": [
+      {
+        "text": "THE END",
+        "outcome": {
+          "successStatChanges": { "hp": -9999 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ending_dark",
+    "poolExcluded": true,
+    "text": [
+      "You vanish without a trace. No songs, no legacy.",
+      "But you are free."
+    ],
+    "choices": [
+      {
+        "text": "THE END",
+        "outcome": {
+          "successStatChanges": { "hp": -9999 }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "small_slime",
+    "name": "Small Slime",
+    "tags": ["crawling"],
+    "damage": 10,
+    "defense": 0,
+    "exp": 20,
+    "hp": 50,
+    "gold": 5,
+    "description": "A round green monster."
+  },
+  {
+    "id": "bandit",
+    "name": "Average Bandit",
+    "tags": ["humanoid","walking","talking"],
+    "damage": 10,
+    "defense": 10,
+    "exp": 20,
+    "hp": 70,
+    "gold": 15,
+    "description": "An average bandit looking for money."
+  },
+  {
+    "id": "vampire",
+    "name": "Vampire",
+    "tags": ["humanoid","walking","talking"],
+    "damage": 30,
+    "defense": 50,
+    "exp": 50,
+    "hp": 150,
+    "gold": 50,
+    "description": "A blood-thirsty vampire."
+  },
+  {
+    "id": "hypnotized_villagers",
+    "name": "Hypnotized Villagers",
+    "tags": ["humanoid","walking","talking"],
+    "damage": 50,
+    "defense": 70,
+    "exp": 50,
+    "hp": 200,
+    "gold": 25,
+    "description": "A whole village of farmers."
+  }
+]
